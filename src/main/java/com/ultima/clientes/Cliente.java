@@ -127,7 +127,9 @@ public class Cliente {
         return recuperarAnoAtual() - recuperarAnoDeNascimento();
 
     }
-
+    private  String nomeCompleto() {
+        return  this.nomeCompelto = this.primeiroNome+" "+this.nomeDoMeio+" "+this.sobrenome;
+    }
 
     private Integer recuperarAnoDeNascimento() {
         Calendar calendario = Calendar.getInstance();
@@ -180,7 +182,7 @@ public class Cliente {
 
 
     public String toString() {
-        return "Nome Completo: "+tratamentoGenero()+" "+nomeCompelto+ "\n"
+        return "Nome Completo: "+tratamentoGenero()+" "+nomeCompleto()+ "\n"
                 +"Idade: "+definirIdadeAtual()+"\n"
                 +"End: "+endereco+"\n"
                 +"Cpf: "+cpf+"\n"
