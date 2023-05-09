@@ -1,9 +1,12 @@
 package com.ultima.clientes;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
-public class Cliente {
+public class ClienteBuilder {
+
     private String nomeCompelto;
     private String primeiroNome;
     private String nomeDoMeio;
@@ -16,13 +19,13 @@ public class Cliente {
     private String endereco;
     private String telefone;
 
-    public Cliente() {}
+    public ClienteBuilder() {}
 
 
 
-    public Cliente(String nomeCompleto, String primeiroNome, String nomeDoMeio, String sobrenome,
-                   String cpf,
-                   String dataDeNascimento, String email, Character genero, String endereco, String telefone) {
+    public ClienteBuilder comIndetificacao( String primeiroNome, String nomeDoMeio, String sobrenome,
+                                           String cpf,
+                                           String dataDeNascimento,  Character genero, String endereco, String telefone) {
 
         this.primeiroNome = primeiroNome;
         this.nomeDoMeio = nomeDoMeio;
@@ -31,12 +34,18 @@ public class Cliente {
         this.dataDeNascimento = dataDeNascimento;
         this.cpf = cpf;
         this.idadeAtual = definirIdadeAtual();
-        this.email = email;
         this.genero = genero;
-        this.endereco = endereco;
-        this.telefone = telefone;
+
+
+        return this;
     }
 
+    public ClienteBuilder conContatos(String email, String endereco, String telefone) {
+        this.email = email;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        return this;
+    }
 
     //------------------ Get e Set ---------------------------
 
@@ -184,10 +193,13 @@ public class Cliente {
     public String toString() {
         return "Nome Completo: "+tratamentoGenero()+" "+nomeCompleto()+ "\n"
                 +"Idade: "+definirIdadeAtual()+"\n"
-                +"End: "+endereco+"\n"
-                +"Cpf: "+cpf+"\n"
-                +"E-mail: "+email+"\n";
-
-
+                +"Cpf: "+cpf+"\n";
     }
+
+    public String toStringContatos() {
+        return "Email: "+ getEmail()+"\n"
+                +"End.: "+getEndereco()+"\n"
+                +"Tel.:"+getTelefone();
+    }
+
 }
