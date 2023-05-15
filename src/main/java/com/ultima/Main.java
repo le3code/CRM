@@ -5,7 +5,7 @@ import com.ultima.clientes.ClienteBuilder;
 
 public class Main {
     public static void main(String[] args) {
-
+        /*
         Cliente cliente = new Cliente();
         cliente.setPrimeiroNome("Leonard");
         cliente.setNomeDoMeio("Lopes");
@@ -18,7 +18,7 @@ public class Main {
         cliente.setEdereco("rua vial bela 704 casa 3");
         System.out.println(cliente);
         System.out.println("--------------------------------------------------------------------------------");
-
+        */
                             // PRDÃO  DE PROJETO
         //------------------------------------------------------------------------------------------------
         ClienteBuilder clienteBuilder = new ClienteBuilder().comIndetificacao("Leonardo",
