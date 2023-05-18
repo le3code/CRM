@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClienteBuilder {
 
@@ -19,12 +21,13 @@ public class ClienteBuilder {
     private String endereco;
     private String telefone;
 
+
+
     public ClienteBuilder() {}
 
 
 
-    public ClienteBuilder comIndetificacao( String primeiroNome, String nomeDoMeio, String sobrenome,
-                                           String cpf,
+    public ClienteBuilder comIndetificacao( String primeiroNome, String nomeDoMeio, String sobrenome, String cpf,
                                            String dataDeNascimento,  Character genero, String endereco, String telefone) {
 
         this.primeiroNome = primeiroNome;
@@ -54,7 +57,18 @@ public class ClienteBuilder {
     }
 
     public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
+
+        if (primeiroNome == "" ) {
+            this.primeiroNome = null;
+            System.out.println("Não  e permitido nome nulos!");
+
+        } else if (! primeiroNome.matches("[^a-zA-Z]")) {
+            this.primeiroNome = primeiroNome;
+
+        } else {
+            this.primeiroNome = null;
+        }
+
     }
 
     public String getNomeDoMeio() {
@@ -62,7 +76,17 @@ public class ClienteBuilder {
     }
 
     public void setNomeDoMeio(String nomeDoMeio ) {
-        this.nomeDoMeio = nomeDoMeio;
+        if (nomeDoMeio == "" ) {
+            this.nomeDoMeio = null;
+            System.out.println("Não  e permitido nome nulos!");
+        }
+        if ( ! nomeDoMeio.matches("[^a-zA-Z]")) {
+            this.nomeDoMeio = nomeDoMeio;
+
+        } else {
+            this.nomeDoMeio = null;
+            System.out.println("Não  e permitido nome nulos!");
+        }
     }
 
     public String getSobrenome() {
@@ -70,7 +94,18 @@ public class ClienteBuilder {
     }
 
     public void setSobrenome(String sobrenome ) {
-        this.sobrenome = sobrenome;
+        if (sobrenome == "" ) {
+            this.sobrenome = null;
+            System.out.println("Não  e permitido nome nulos!");
+        }
+        if ( ! sobrenome.matches("[^a-zA-Z]")) {
+            this.sobrenome = sobrenome;
+
+        } else {
+            this.sobrenome = null;
+            System.out.println("Não  e permitido nome nulos!");
+        }
+
     }
 
     public String getCpf() {
@@ -78,7 +113,17 @@ public class ClienteBuilder {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf == "" ) {
+            cpf = null;
+            System.out.println("cpf invalido!");
+        }
+        if (! cpf.matches("000.000.000-00")) {
+            cpf = "fomato errado!";
+            cpf = null;
+        } else {
+            this.cpf = cpf;
+        }
+
     }
 
     public Integer getIdadeAtual() {
@@ -92,7 +137,12 @@ public class ClienteBuilder {
     }
 
     public void setGenero(Character genero) {
-        this.genero = genero;
+        if (genero == null ){
+            this.genero = null;
+        }
+
+        char maiusculo = Character.toUpperCase(genero);
+        this.genero = maiusculo;
     }
 
     public String getEmail() {
@@ -100,7 +150,18 @@ public class ClienteBuilder {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email == "") {
+            this.email = null;
+            System.out.println("e-mail inválido");
+
+        } else if (  email.matches("(.+)@(.+)$")) {
+            this.email = email;
+
+        } else {
+            this.email = null;
+            System.out.println("e-mail inválido");
+        }
+
     }
 
     public String getEndereco() {
@@ -117,7 +178,17 @@ public class ClienteBuilder {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        if (telefone == ""){
+            this.telefone = null;
+            System.out.println("Numero iválido!");
+
+        } else if (telefone.matches("(\\(\\d{2}\\)\\s)(\\d{4,5}\\-\\d{4})") || telefone.matches("\\d9/g")) {
+            this.telefone = telefone;
+        } else {
+            this.telefone =  null;
+            System.out.println("Numero iválido!");
+        }
+
 
     }
 
