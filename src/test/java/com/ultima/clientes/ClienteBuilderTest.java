@@ -3,6 +3,7 @@ package com.ultima.clientes;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class ClienteBuilderTest extends TestCase {
     private ClienteBuilder clienteBuilder = new ClienteBuilder();

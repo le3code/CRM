@@ -27,8 +27,9 @@ public class ClienteBuilder {
 
 
 
-    public ClienteBuilder comIndetificacao( String primeiroNome, String nomeDoMeio, String sobrenome, String cpf,
-                                           String dataDeNascimento,  Character genero, String endereco, String telefone) {
+    public ClienteBuilder comIndetificacao(
+            String primeiroNome, String nomeDoMeio, String sobrenome, String cpf,
+            String dataDeNascimento,  Character genero, String endereco, String telefone) {
 
         this.primeiroNome = primeiroNome;
         this.nomeDoMeio = nomeDoMeio;
