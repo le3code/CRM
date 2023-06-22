@@ -18,8 +18,6 @@ public class Cliente {
 
     public Cliente() {}
 
-
-
     public Cliente(String nomeCompleto, String primeiroNome, String nomeDoMeio, String sobrenome,
                    String cpf,
                    String dataDeNascimento, String email, Character genero, String endereco, String telefone) {

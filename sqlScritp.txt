@@ -1,0 +1,20 @@
+CREATE  DATABASE  crm;
+USE crm;
+
+CREATE TABLE cliente (
+
+	id INT NOT NULL AUTO_INCREMENT,
+	nome_completo VARCHAR(150) NOT NULL,
+	primeiro_nome VARCHAR(30) NOT NULL,
+	nome_do_meio VARCHAR(30) NOT NULL,
+	sobrenome VARCHAR(50),
+	data_nascimento VARCHAR(10),
+	cpf VARCHAR(15) NOT NULL,
+	idade_atual INT(10),
+	email VARCHAR(100),
+	genero CHAR(5),
+	endereco VARCHAR(250),
+	telefone VARCHAR(20),
+	PRIMARY KEY(id)
+
+);
