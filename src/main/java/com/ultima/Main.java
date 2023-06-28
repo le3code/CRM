@@ -2,34 +2,24 @@ package com.ultima;
 
 import com.ultima.clientes.Cliente;
 import com.ultima.clientes.ClienteBuilder;
+import com.ultima.repository.Reader;
+
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
+        ClienteBuilder clienteBuilder = new ClienteBuilder();
+        Reader reader = new Reader();
+
+
+        for (ClienteBuilder r : reader.findAll()) {
+            System.out.println(r);
+        }
+
         /*
-        Cliente cliente = new Cliente();
-        cliente.setPrimeiroNome("Leonard");
-        cliente.setNomeDoMeio("Lopes");
-        cliente.setSobrenome("Sousa");
-        cliente.setTelefone("16 98189-1251");
-        cliente.setDataDeNascimento("28/09/1989");
-        cliente.setCpf("152.766.952-11");
-        cliente.setGenero('M');
-        cliente.setEmail("migleo@gmail.com");
-        cliente.setEdereco("rua vial bela 704 casa 3");
-        System.out.println(cliente);
-        System.out.println("--------------------------------------------------------------------------------");
-        */
-                            // PRDÃO  DE PROJETO
-        //------------------------------------------------------------------------------------------------
-        ClienteBuilder clienteBuilder = new ClienteBuilder().comIndetificacao("Leonardo",
-                "Ribeiro", "de Sousa","152.776.952-11", "28/09/1989",
-               'M', "rua vila bela 704", "16-98542-5584");
+        System.out.println(clienteBuilder+"aqui");
 
-        ClienteBuilder contato = new ClienteBuilder().conContatos("leonardo@leo",
-                "Rua vila bela ", "16 98189-1251");
-
-        System.out.println(clienteBuilder);
-
-        System.out.println(contato.toStringContatos());
+         */
     }
 }

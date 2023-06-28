@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClienteBuilder {
-
+    private int id;
     private String nomeCompelto;
     private String primeiroNome;
     private String nomeDoMeio;
@@ -51,6 +51,23 @@ public class ClienteBuilder {
     }
 
     //------------------ Get e Set ---------------------------
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNomeCompelto() {
+        return nomeCompelto;
+    }
+
+    public void setNomeCompelto(String nomeCompelto) {
+
+        this.nomeCompelto = getPirmeiroNome()+" "+getPirmeiroNome()+" "+getSobrenome();
+    }
 
     public String getPirmeiroNome() {
         return primeiroNome;
@@ -130,7 +147,9 @@ public class ClienteBuilder {
         return idadeAtual;
     }
 
-
+    public void setIdadeAtual(Integer idadeAtual) {
+        this.idadeAtual = definirIdadeAtual();
+    }
 
     public Character getGenero() {
         return genero;
@@ -260,7 +279,25 @@ public class ClienteBuilder {
         }
     }
 
+    @Override
+    public String toString() {
+        return "ClienteBuilder{" +
+                "id=" + id +
+                ", nomeCompelto='" + nomeCompelto + '\'' +
+                ", primeiroNome='" + primeiroNome + '\'' +
+                ", nomeDoMeio='" + nomeDoMeio + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", dataDeNascimento='" + dataDeNascimento + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", idadeAtual=" + idadeAtual +
+                ", email='" + email + '\'' +
+                ", genero=" + genero +
+                ", endereco='" + endereco + '\'' +
+                ", telefone='" + telefone + '\'' +
+                '}';
+    }
 
+    /*
     public String toString() {
         return "Nome Completo: "+tratamentoGenero()+" "+nomeCompleto()+ "\n"
                 +"Idade: "+definirIdadeAtual()+"\n"
@@ -272,5 +309,5 @@ public class ClienteBuilder {
                 +"End.: "+getEndereco()+"\n"
                 +"Tel.:"+getTelefone();
     }
-
+    */
 }
